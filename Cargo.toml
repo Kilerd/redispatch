@@ -1,0 +1,17 @@
+[package]
+name = "redispatch"
+version = "0.0.2"
+edition = "2021"
+description= "best serialization patch for redis"
+license = "MIT or Apache-2.0"
+author = ["Kilerd Chan <blove694@gmail.com>"]
+readme = "README.md"
+repository = "https://github.com/kilerd/redispatch"
+keywords = ["redis", "serde", "serialization"]
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+async-trait = "0.1.68"
+redis = { version = "0.23.0", features = ["aio", "tokio-comp"] }
+serde = "1.0.162"
+serde_json = "1.0.96"
