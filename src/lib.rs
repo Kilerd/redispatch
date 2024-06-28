@@ -1,9 +1,9 @@
 use redis::aio::{Connection, ConnectionLike};
 use redis::{cmd, AsyncCommands, FromRedisValue, RedisFuture, ToRedisArgs};
-use serde::{Serialize, de::DeserializeOwned};
+use serde::{de::DeserializeOwned, Serialize};
 
 #[async_trait::async_trait]
-trait JsonSerdeCommands: AsyncCommands {
+pub trait JsonSerdeCommands: AsyncCommands {
     async fn get<'a, K, RV>(&'a mut self, key: K) -> Option<RV>
     where
         K: Serialize + Send + Sync + 'a,
