@@ -4,7 +4,7 @@ use serde::{de::DeserializeOwned, Serialize};
 
 #[async_trait::async_trait]
 pub trait JsonSerdeCommands: AsyncCommands {
-    async fn set_serde<'a, K, RV>(&'a mut self, key: K) -> Option<RV>
+    async fn get_serde<'a, K, RV>(&'a mut self, key: K) -> Option<RV>
     where
         K: Serialize + Send + Sync + 'a,
         RV: DeserializeOwned,
